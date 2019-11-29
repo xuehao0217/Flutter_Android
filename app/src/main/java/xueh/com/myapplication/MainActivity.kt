@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(flutterView)
 //        setContentView(R.layout.activity_main)
 
-
+        //
         MethodChannel((flutterView), FLUTTER2ANDROID).setMethodCallHandler { call, result ->
             if (call.method == "flutter2Android") {
 //                startActivity(Intent(this@MainActivity, Main2Activity::class.java))
