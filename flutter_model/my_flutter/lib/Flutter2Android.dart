@@ -7,41 +7,59 @@ class BatteryWidget extends StatefulWidget {
 }
 
 class _BatteryWidgetState extends State<BatteryWidget> {
-  String android2Fllutter = 'android调用flutter';
-  String flutter2Android = 'flutter2Android';
+  String str_Flutter2Android = 'flutter2Android';
+  String str_Android2Fllutter = 'android调用flutter'; //android 调用flutter方式1
+  String str_Android2Fllutter2 = 'android调用flutter'; //android 调用flutter方式2
 
   static const EventChannel eventChannel = EventChannel('Android2Flutter');
   static const MethodChannel methodChannel = MethodChannel('Flutter2Android');
 
+  //flutter异步调用android 原生返回结果
   Future<void> _flutter2Android() async {
-    String flutter2AndroidResult;
+    String str_F2A_Result;
     try {
       final String result = await methodChannel.invokeMethod('flutter2Android');
-      flutter2AndroidResult = '$result';
+      str_F2A_Result = '$result';
     } on PlatformException {
-      flutter2AndroidResult = '';
+      str_F2A_Result = '';
     }
     setState(() {
-      flutter2Android = flutter2AndroidResult;
+      str_Flutter2Android = str_F2A_Result;
     });
   }
+
 
   @override
   void initState() {
     super.initState();
+    //Android调用Flutter
     eventChannel.receiveBroadcastStream().listen(_onEvent, onError: _onError);
+    //Android调用Flutter 方式2
+    methodChannel.setMethodCallHandler((MethodCall call) {
+      if (call?.method == 'getContent') {
+        setState(() {
+          str_Android2Fllutter2 = call?.arguments ?? '';
+        });
+        return returnToRaw();
+      }
+    });
+  }
+
+  Future<String> returnToRaw() async {
+//    return 'received your message';
+    throw PlatformException(code: 'error code');
   }
 
   void _onEvent(Object event) {
     setState(() {
-      android2Fllutter = "android调用flutter成功返回值: ${event.toString()} ";
+      str_Android2Fllutter = "android调用flutter成功: ${event.toString()} ";
     });
   }
 
   void _onError(Object error) {
     setState(() {
       PlatformException exception = error;
-      android2Fllutter = exception?.message ?? 'android调用flutter失败';
+      str_Android2Fllutter = exception?.message ?? 'android调用flutter失败';
     });
   }
 
@@ -51,12 +69,13 @@ class _BatteryWidgetState extends State<BatteryWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(flutter2Android),
+          Text(str_Flutter2Android),
           RaisedButton(
             child: const Text('调用原生'),
             onPressed: _flutter2Android,
           ),
-          Text(android2Fllutter),
+          Text(str_Android2Fllutter),
+          Text(str_Android2Fllutter2),
         ],
       ),
     );
