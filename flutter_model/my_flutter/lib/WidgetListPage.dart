@@ -33,8 +33,7 @@ class _WidgetListState extends State<WidgetListPage> {
                   shape: Border.all(
                       color: Colors.amberAccent,
                       width: 1,
-                      style: BorderStyle.solid)
-              ),
+                      style: BorderStyle.solid)),
               OutlineButton(
                   child: Text("圆角Button"),
                   onPressed: () {},
@@ -46,10 +45,18 @@ class _WidgetListState extends State<WidgetListPage> {
                           color: Colors.amberAccent,
                           width: 1,
                           style: BorderStyle.solid),
-                      borderRadius: BorderRadius.all(Radius.circular(5)))
+                      borderRadius: BorderRadius.all(Radius.circular(5)))),
+              Image.network(
+                "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
+                fit: BoxFit.fitWidth,
+                width: 100.0,
+//                height: 50.0,
               ),
-
-
+              Image.asset(
+                "images/ic_launcher_round.png",
+                width: 100.0,
+                height: 100.0,
+              ),
             ],
           ),
         ),

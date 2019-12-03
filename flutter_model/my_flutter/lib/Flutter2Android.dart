@@ -86,7 +86,11 @@ class _BatteryWidgetState extends State<BatteryWidget> {
                   new MaterialPageRoute(
                       builder: (context) => WidgetListPage()));
             },
+
           )
+
+
+
         ],
       ),
     );
