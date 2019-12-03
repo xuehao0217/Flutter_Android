@@ -7,6 +7,15 @@ class WidgetListPage extends StatefulWidget {
 }
 
 class _WidgetListState extends State<WidgetListPage> {
+  int _count = 0;
+
+  void _incrementCount() {
+    setState(() {
+      _count++;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,13 +27,14 @@ class _WidgetListState extends State<WidgetListPage> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Hello World!',
-                textDirection: TextDirection.ltr,
+                _count.toString(),
+                maxLines: 1,//最大行数1
                 textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                overflow: TextOverflow.ellipsis, //设置超过显示省略号
+                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.amber),
               ),
               OutlineButton(
                   onPressed: () {},
@@ -48,9 +58,9 @@ class _WidgetListState extends State<WidgetListPage> {
                       borderRadius: BorderRadius.all(Radius.circular(5)))),
               Image.network(
                 "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
-                fit: BoxFit.fitWidth,
-                width: 100.0,
-//                height: 50.0,
+                fit: BoxFit.cover,
+                width: 300,
+                height: 150,
               ),
               Image.asset(
                 "images/ic_launcher_round.png",
@@ -59,6 +69,12 @@ class _WidgetListState extends State<WidgetListPage> {
               ),
             ],
           ),
+        ),
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCount,
+          tooltip: 'Increment', //长按之后会显示的提示文字。
+          child: Icon(Icons.add),
         ),
       ),
     );
