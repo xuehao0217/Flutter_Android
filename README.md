@@ -30,3 +30,8 @@ dependencies {
   implementation project(':flutter')
 }
 ```
+### 3：热重载和调试 dart 代码
+
+首先定位到 Flutter Module 路径，这里为/Users/nesger/Desktop/nesger_folder/project/studio/my_flutter。接着执行命令flutter attach，会看到控制台输出
+
+Waiting for a connection from Flutter on SM G9350…
