@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_flutter/WidgetListPage.dart';
 
 class BatteryWidget extends StatefulWidget {
   @override
@@ -27,7 +29,6 @@ class _BatteryWidgetState extends State<BatteryWidget> {
       str_Flutter2Android = str_F2A_Result;
     });
   }
-
 
   @override
   void initState() {
@@ -76,6 +77,16 @@ class _BatteryWidgetState extends State<BatteryWidget> {
           ),
           Text(str_Android2Fllutter),
           Text(str_Android2Fllutter2),
+
+          RaisedButton(
+            child: Text("组件集合"),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => WidgetListPage()));
+            },
+          )
         ],
       ),
     );
