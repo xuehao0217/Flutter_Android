@@ -24,6 +24,7 @@ class _WidgetListState extends State<WidgetListPage> {
           title: Text("Flutter Widget List"),
         ),
         body: Center(
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
