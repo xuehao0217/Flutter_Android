@@ -57,13 +57,17 @@ class _WidgetListState extends State<WidgetListPage> {
                     borderRadius: BorderRadius.all(Radius.circular(20))),
                 onPressed: () {},
               ),
-              RaisedButton(
-                child: Text("RaisedButton"),
-                color: Colors.blue,
-                textColor: Colors.red,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                onPressed: () {},
+              Container(
+                margin: EdgeInsets.fromLTRB(20,0,20,0),
+                width: double.infinity,
+                child:  RaisedButton(
+                  child: Text("充满整个屏幕的RaisedButton"),
+                  color: Colors.blue,
+                  textColor: Colors.red,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  onPressed: () {},
+                )
               ),
               Image.network(
                 "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
