@@ -83,6 +83,9 @@ main() {
   Pserson()
     ..age = 10
     ..name = "xh";
+
+
+  print('xxxx'.getMyLength);
 }
 
 //可选参数 使用 = 来定义可选参数的默认值
@@ -104,9 +107,14 @@ String say(String from, String msg,
   return result;
 }
 
-
 class Pserson {
   var name;
   var age;
 }
 
+
+
+/// 字符串扩展方法
+extension StringExtension on String {
+  get getMyLength => this.length;
+}
