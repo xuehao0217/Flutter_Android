@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/widget/WidgetListPage.dart';
 
-
-class BatteryWidget extends StatefulWidget {
+class InteractivePage extends StatefulWidget {
   @override
-  _BatteryWidgetState createState() => _BatteryWidgetState();
+  _InteractiveState createState() => _InteractiveState();
 }
 
-class _BatteryWidgetState extends State<BatteryWidget> {
+class _InteractiveState extends State<InteractivePage> {
   String str_Flutter2Android = 'flutter2Android';
   String str_Android2Fllutter = 'android调用flutter'; //android 调用flutter方式1
   String str_Android2Fllutter2 = 'android调用flutter'; //android 调用flutter方式2
@@ -67,32 +66,22 @@ class _BatteryWidgetState extends State<BatteryWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(str_Flutter2Android),
-          RaisedButton(
-            child: const Text('调用原生'),
-            onPressed: _flutter2Android,
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(str_Flutter2Android),
+              RaisedButton(
+                child: const Text('调用原生'),
+                onPressed: _flutter2Android,
+              ),
+              Text(str_Android2Fllutter),
+              Text(str_Android2Fllutter2),
+            ],
           ),
-          Text(str_Android2Fllutter),
-          Text(str_Android2Fllutter2),
-
-          RaisedButton(
-            child: Text("组件集合"),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => WidgetListPage()));
-            },
-
-          )
-
-
-
-        ],
+        ),
       ),
     );
   }

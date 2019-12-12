@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_flutter/widget/GridWidgetPage.dart';
 import 'package:my_flutter/widget/ListWidgetPage.dart';
+import 'package:my_flutter/widget/TabBarPage.dart';
 
 class WidgetListPage extends StatefulWidget {
   @override
@@ -73,8 +74,8 @@ class _WidgetListState extends State<WidgetListPage> {
                     borderRadius: BorderRadius.all(Radius.circular(20))),
                 onPressed: () {},
               ),
-              //设置 margin 或者 padding 的 Widget。
               Container(
+                  //设置 margin 或者 padding 的 Widget。
                   margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   width: double.infinity,
                   child: RaisedButton(
@@ -147,19 +148,17 @@ class _WidgetListState extends State<WidgetListPage> {
                           builder: (context) => GridWidgetPage()));
                 },
               ),
-
-//              Container(
-//                //1）给一些没有自带宽高的属性设置宽高。
-//                //比如我们上面讲到 Row 最后一个 Sample 的时候，给 Text、Row 设置宽高都是在外面套一层 Container。
-//                //2) 设置间距。
-//                padding: EdgeInsets.only(top: 20.0),
-//                color: Colors.blue,
-//                child: Image.network(
-//                  "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
-//                  width: 100,
-//                  height: 100,
-//                ),
-//              ),
+              FlatButton(
+                child: Text("TabBar"),
+                textColor: Colors.white,
+                color: Colors.blue,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => TabBarPager()));
+                },
+              ),
             ],
           ),
         ),

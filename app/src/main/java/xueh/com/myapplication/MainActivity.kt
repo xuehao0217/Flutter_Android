@@ -13,13 +13,13 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : AppCompatActivity() {
     val FLUTTER2ANDROID = "Flutter2Android"
     val ANDROID2FLUTTER = "Android2Flutter"
-    var TAG = "AAA"
+    var TAG = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val flutterView = Flutter.createView(
             this@MainActivity,
             lifecycle,
-            "battery"
+            "toFlutter"
         )
         setContentView(flutterView)
 //        setContentView(R.layout.activity_main)
@@ -39,19 +39,22 @@ class MainActivity : AppCompatActivity() {
                     //   第一个为方法名。用于 Flutter 区分 Android 的不同请求。
                     //   第二个为参数值。用于 Android 需要给 Flutter 传递的额外数据。
                     //   第三个为 Android -> Flutter 请求的结果回调。
-                    invokeMethod("getContent", "android 返回：android向flutter通信 方式二", object : MethodChannel.Result {
-                        override fun success(@Nullable o: Any?) {
-                            Log.e(TAG, "success=$o")
-                        }
+                    invokeMethod(
+                        "getContent",
+                        "android 返回：android向flutter通信 方式二",
+                        object : MethodChannel.Result {
+                            override fun success(@Nullable o: Any?) {
+                                Log.e(TAG, "success=$o")
+                            }
 
-                        override fun error(s: String, @Nullable s1: String?, @Nullable o: Any?) {
-                            Log.e(TAG, "error=$s")
-                        }
+                            override fun error(s: String, @Nullable s1: String?, @Nullable o: Any?) {
+                                Log.e(TAG, "error=$s")
+                            }
 
-                        override fun notImplemented() {
-                            Log.e(TAG, "notImplemented")
-                        }
-                    })
+                            override fun notImplemented() {
+                                Log.e(TAG, "notImplemented")
+                            }
+                        })
                 } else {
                     result.notImplemented()
                 }
