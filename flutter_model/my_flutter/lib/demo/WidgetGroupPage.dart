@@ -106,7 +106,8 @@ class WidgetGroupPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(5),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,//将主轴空白位置进行均分，排列子元素，首尾子控件距边缘没有间隙
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //将主轴空白位置进行均分，排列子元素，首尾子控件距边缘没有间隙
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Row(
@@ -139,6 +140,65 @@ class WidgetGroupPage extends StatelessWidget {
       ),
     );
 
+    var item4 = Container(
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Image.network(
+                "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
+                width: 20,
+                height: 20,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: Text("TextTextTextText"),
+                ),
+              ),
+              Text("flutter"),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                  child: Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      "TextTextTextTextTextTextTextTextTextTextTextTextTextTextTextText",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      "TextTextTextTextTextTextTextTextTextTt",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black12,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              )),
+              Image.network(
+                "http://img3.duitang.com/uploads/item/201504/07/20150407H4809_fzN5t.thumb.700_0.jpeg",
+                width: 80,
+                height: 80,
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
@@ -152,6 +212,7 @@ class WidgetGroupPage extends StatelessWidget {
             ),
             item2,
             item3,
+            item4,
           ],
         ));
   }

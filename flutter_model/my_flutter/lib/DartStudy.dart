@@ -1,3 +1,5 @@
+import 'dart:io';
+
 main() {
   var number = 42; // 声明并初始化一个变量。
   var name = 'Bob';
@@ -126,7 +128,29 @@ main() {
   // 展开操作符(...) spread operator
   var list2 = [0, ...list1];
   print(list2.toString());
+
+
+
+  //在本地创建文件
+//  var dir = Directory(r"G:\AndroidStudioProjects\dart\test\all\li");
+//  dir.createSync(recursive: true);
+
+  var dir = Directory(r"G:\AndroidStudioProjects\demo");
+  var dirlist = dir.list();//默认非递归及只列出一级
+  dirlist.forEach((fs){
+    print(fs.path);
+  });
+
+
+  wirte(r"G:\AndroidStudioProjects\dart\test\test.txt");
+
 }
+
+wirte(name) async{
+  var file = File(name);
+  file.writeAsString("海的彼岸有我未曾见证的风采");
+}
+
 
 //可选参数 使用 = 来定义可选参数的默认值
 //定义函数是，使用 {param1, param2, …} 来指定命名参数：
