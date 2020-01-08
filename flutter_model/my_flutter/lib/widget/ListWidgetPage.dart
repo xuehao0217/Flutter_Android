@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'GridWidgetPage.dart';
 
 class ListWidgetPage extends StatelessWidget {
   @override
