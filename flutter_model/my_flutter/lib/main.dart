@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_flutter/Flutter2Android.dart';
 import 'package:my_flutter/widget/WidgetListPage.dart';
 
-import 'demo/WidgetGroupPage.dart';
+import 'demo/HomePage.dart';
 //void main() => runApp(MyApp());
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
@@ -66,15 +66,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) => InteractivePage()));
               },
             ),
-            RaisedButton(
-              child: Text("组件集合"),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => WidgetListPage()));
-              },
-            ),
+//            RaisedButton(
+//              child: Text("组件集合"),
+//              onPressed: () {
+//                Navigator.push(
+//                    context,
+//                    new MaterialPageRoute(
+//                        builder: (context) => WidgetListPage()));
+//              },
+//            ),
 
             RaisedButton(
               child: Text("案例"),
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => WidgetGroupPage()));
+                        builder: (context) => HomePage()));
               },
 
             )
