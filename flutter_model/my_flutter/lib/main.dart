@@ -5,6 +5,7 @@ import 'package:my_flutter/Flutter2Android.dart';
 import 'package:my_flutter/widget/WidgetListPage.dart';
 
 import 'demo/HomePage.dart';
+import 'widget/TabNavigator.dart';
 //void main() => runApp(MyApp());
 void main() => runApp(_widgetForRoute(window.defaultRouteName));
 
@@ -82,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     new MaterialPageRoute(
-                        builder: (context) => HomePage()));
+                        builder: (context) => TabNavigator()));
               },
 
             )
