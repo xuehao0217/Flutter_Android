@@ -46,7 +46,7 @@ class _searchPage extends State<SearchPage> {
   }
 
   getContent() {
-    DioManager.getInstance().get(Api.banner, (data) {
+    DioManager.getInstance().get(Api.banner, null, (data) {
       setState(() {
         //更新UI等
         picList = bannerEntity.fromJson(data).data;

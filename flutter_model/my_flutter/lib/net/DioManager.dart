@@ -52,8 +52,8 @@ class DioManager {
   }
 
   //get请求
-  get(String url, Function successCallBack,
-      {Map<String, dynamic> params, Function errorCallBack}) async {
+  get(String url, Map<String, dynamic> params, Function successCallBack,
+      {Function errorCallBack}) async {
     _requstHttp(url, successCallBack, 'get', params, errorCallBack);
   }
 
@@ -98,28 +98,10 @@ class DioManager {
       else if (error.type == DioErrorType.RECEIVE_TIMEOUT) {
         errorResponse.statusCode = ResultCode.RECEIVE_TIMEOUT;
       }
-
-      // debug模式才打印
-      if (GlobalConfig.isDebug) {
-        print('请求异常: ' + error.toString());
-        print('请求异常url: ' + url);
-        print('请求头: ' + dio.options.headers.toString());
-        print('method: ' + dio.options.method);
-      }
       _error(errorCallBack, error.message);
       return '';
     }
-    // debug模式打印相关数据
-    if (GlobalConfig.isDebug) {
-      print('请求url: ' + url);
-      print('请求头: ' + dio.options.headers.toString());
-      if (params != null) {
-        print('请求参数: ' + params.toString());
-      }
-      if (response != null) {
-        print('返回参数: ' + response.toString());
-      }
-    }
+
     String dataStr = json.encode(response.data);
     Map<String, dynamic> dataMap = json.decode(dataStr);
     if (dataMap == null || dataMap['state'] == 0) {
