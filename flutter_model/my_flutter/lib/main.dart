@@ -67,15 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         builder: (context) => InteractivePage()));
               },
             ),
-//            RaisedButton(
-//              child: Text("组件集合"),
-//              onPressed: () {
-//                Navigator.push(
-//                    context,
-//                    new MaterialPageRoute(
-//                        builder: (context) => WidgetListPage()));
-//              },
-//            ),
+            RaisedButton(
+              child: Text("组件集合"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => WidgetListPage()));
+              },
+            ),
 
             RaisedButton(
               child: Text("案例"),

@@ -19,7 +19,7 @@ class _searchPage extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("List"),
+        title: Text(""),
       ),
       body: Container(
         child: ListView.builder(
