@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter/api/Api.dart';
 import 'package:my_flutter/entity/BannerEntity.dart';
+import 'package:my_flutter/net/DioManager.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -44,13 +45,12 @@ class _searchPage extends State<SearchPage> {
     getContent();
   }
 
-////获取网络数据
-  Future<void> getContent() async {
-    Response response;
-    Dio dio = new Dio();
-    response = await dio.get(Api.BaseUrl + "banner/json");
-    setState(() {
-      picList=bannerEntity.fromJson(response.data).data;
+  getContent() {
+    DioManager.getInstance().get(Api.banner, (data) {
+      setState(() {
+        //更新UI等
+        picList = bannerEntity.fromJson(data).data;
+      });
     });
   }
 }
