@@ -2,9 +2,9 @@
 
 ### 第一步：创建 Flutter Module
 
-假设已经存在的 Android 项目路径为 /Users/nesger/Desktop/nesger_folder/project/studio/MyApp，那么我们在同级目录下面创建 Flutter Module。在终端执行如下命令：
+假设已经存在的 Android 项目路径为 /Users/project/studio/MyApp，那么我们在同级目录下面创建 Flutter Module。在终端执行如下命令：
 
-cd /Users/nesger/Desktop/nesger_folder/project/studio/ 
+cd /Users/project/studio/ 
 flutter create -t module my_flutter
 执行命令之后，就创建了一个带有 dart 代码的 Flutter Module，并且能够看到一个隐藏的文件夹 .android。
 
